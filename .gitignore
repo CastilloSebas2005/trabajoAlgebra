@@ -1,0 +1,5 @@
+#para ignorar los archivos .txt y .properties que crea processing
+*.txt
+*.properties
+#ignorar los archivos de BlueJ
+*.BlueJ
