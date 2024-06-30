@@ -1,49 +1,37 @@
 import java.util.*;
+import javax.swing.*;
 public class menu
 {
-   public menu(){
-       
-   }
-   public int ejex;
-   public int ejey;
-   public int const_;
-   
-   
-   public void Menu(){
-     Scanner in = new Scanner(System.in);
-     System.out.println("Bienvenido a nuestro proyecto final de álgebra lineal!!");
-     boolean menu = true;
-     while(menu){
-       try{
-       int option;
-       System.out.println("Menú:");
-       System.out.println("Ingrese 1 si desea realizar la graficación y calculo de una curva");
-       System.out.println("Ingrese 2 si desea salir del programa");
-       option = in.nextInt();
-       switch(option){
-         case 1:
-         System.out.println("Ingrese un eje x al cuadrado");
-         this.ejex = in.nextInt();
-         System.out.println("Ingrese un eje y al cuadrado");
-         this.ejey = in.nextInt();
-         System.out.println("Ingrese una constante");
-         this.const_ = in.nextInt();
-         // Aquí hacemos la magia bro
-         break;
-         case 2:
-        System.out.println("Muchas Gracias por revisar nuestro proyecto, hasta pronto!!!!");
-         in.close();
-         menu = false;
-         break;
-       }
-       }catch(Exception e){
-         System.out.println("ohhh no, ocurrió un error, rayos!!, vuelvelo a intentar");
-         menu = true;
-       }
-       
-       
-       
-       
-   }
-}
+  public float ejex;
+  public float ejey;
+  public float ejexy;
+  public float const_;
+  private PImage error;
+
+  public menu() {
+    String in = JOptionPane.showInputDialog("Bienvenido a nuestro proyecto final de álgebra lineal!!\n" + "Menú:\n" + "Ingrese 1 si desea realizar la graficación y calculo de una curva\n" + "Ingrese 2 si desea salir del programa");
+    try {
+      int entrada = Integer.parseInt(in);
+      while (entrada == 1) {
+        in = JOptionPane.showInputDialog("Ingrese un x elevado al cuadrado");
+        ejex = Float.parseFloat(in);
+        in = JOptionPane.showInputDialog("Ingrese un y elevado al cuadrado");
+        ejey = Float.parseFloat(in);
+        in = JOptionPane.showInputDialog("Ingrese un xy");
+        ejexy = Float.parseFloat(in);
+        in = JOptionPane.showInputDialog("Ingrese una constante");
+        const_ = Float.parseFloat(in);
+        entrada = 0;
+      }
+      if (entrada == 2) {
+        System.out.println("Suerte!!");
+      } else {
+        System.out.println("calculando...");
+      }
+    }
+    catch(Exception e) {
+      error = loadImage("Error.jpeg");
+      image(error, 0, 0, width, height);
+    }
+  }
 }
