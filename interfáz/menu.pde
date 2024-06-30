@@ -2,10 +2,10 @@ import java.util.*;
 import javax.swing.*;
 public class menu
 {
-  public float ejex;
-  public float ejey;
-  public float ejexy;
-  public float const_;
+  private float ejex;
+  private float ejey;
+  private float ejexy;
+  private float const_;
   private PImage error;
 
   public menu() {
