@@ -1,11 +1,11 @@
 public class matriz {
   private float matrizCuadrica[][] = new float[2][2];
   //este número siempre se va a repetir ya que la matriz cúadrica es una matriz simétrica, corresponde a a01 y a10
-  public matriz(float x, float y, float xy, float const_) {
-    matrizCuadrica[0][0] = x;
-    matrizCuadrica[0][1] = matrizCuadrica[1][0] = xy/2;
-    matrizCuadrica[1][1] = y;
-  }
+   public matriz(float x, float y, float xy, float const_) {
+        matrizCuadrica[0][0] = x;
+        matrizCuadrica[0][1] = matrizCuadrica[1][0] = xy / 2;
+        matrizCuadrica[1][1] = y;
+    }
   public void imprimirMatriz() {
     for (int i = 0; i < 2; i++) {
       System.out.println(" ");
@@ -36,8 +36,8 @@ public class matriz {
         return polinomio;
     }
     
-      public String factorizarPolinomio() {
-
+      public int[] factorizarPolinomio() {
+         int[] valoresPropios = new int[2];
         float a = matrizCuadrica[0][0];
         
         float b = matrizCuadrica[1][1];
@@ -51,18 +51,17 @@ public class matriz {
         float discriminante = coefLambda * coefLambda - 4 * coefLambdaCuadrado * coefConstante;
 
         if (discriminante < 0) {
-             return "Se produjó un error debido a las raíces que se obtuvieron";
+             System.out.println("Se produjó un error debido a las raíces que se obtuvieron");
         } else {
             //bro aquí hacemos la vaina de las raíces 
-            float raiz1 = (float) (-coefLambda + Math.sqrt(discriminante)) / (2 * coefLambdaCuadrado);
-            float raiz2 = (float) (-coefLambda - Math.sqrt(discriminante)) / (2 * coefLambdaCuadrado);
+            int raiz1 = (int) (coefLambda + Math.sqrt(discriminante)) / (int)(2 * coefLambdaCuadrado);
+            int raiz2 = (int) (coefLambda - Math.sqrt(discriminante)) / (int)(2 * coefLambdaCuadrado);
+            valoresPropios[0] = raiz1;
+            valoresPropios[1] = raiz2;
 
-            String factorizacion = String.format("(λ - %.2f)(λ - %.2f)", raiz1, raiz2);
-            return factorizacion;
         }
+        return valoresPropios;
+        
     }
 }
-    
-
-  
 
