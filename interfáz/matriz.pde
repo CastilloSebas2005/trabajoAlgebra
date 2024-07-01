@@ -1,9 +1,9 @@
 public class matriz {
   private float matrizCuadrica[][] = new float[2][2];
   private int[] valoresPropios = new int[2];
-  
+
   //este número siempre se va a repetir ya que la matriz cúadrica es una matriz simétrica, corresponde a a01 y a10
-  public matriz(float x, float y, float xy, float const_) {
+  public matriz(float x, float y, float xy) {
     matrizCuadrica[0][0] = x;
     matrizCuadrica[0][1] = matrizCuadrica[1][0] = xy / 2;
     matrizCuadrica[1][1] = y;
@@ -21,6 +21,7 @@ public class matriz {
         }
       }
     }
+    System.out.println("");
   }
   public String generarPolinomio() {
     float a = matrizCuadrica[0][0];
@@ -39,7 +40,7 @@ public class matriz {
   }
 
   public int[] factorizarPolinomio() {
-    
+
     float a = matrizCuadrica[0][0];
 
     float b = matrizCuadrica[1][1];
@@ -47,7 +48,7 @@ public class matriz {
     float c = matrizCuadrica[0][1];
 
     float coefLambdaCuadrado = 1;
-    float coefLambda = -(a + b);
+    float coefLambda = - a - b;
     float coefConstante = (a * b) - (c * c);
 
     float discriminante = (coefLambda * coefLambda) - (4 * coefLambdaCuadrado * coefConstante);
@@ -59,9 +60,7 @@ public class matriz {
       int raiz1 = (int) (coefLambda - Math.sqrt(discriminante)) / (int)(2 * coefLambdaCuadrado);
       int raiz2 = (int) (coefLambda + Math.sqrt(discriminante)) / (int)(2 * coefLambdaCuadrado);
       valoresPropios[0] = raiz1;
-      System.out.println(raiz1);
       valoresPropios[1] = raiz2;
-      System.out.println(raiz2);
     }
     return valoresPropios;
   }
