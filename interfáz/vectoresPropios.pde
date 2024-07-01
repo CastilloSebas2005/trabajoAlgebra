@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class vectoresPropios {
   private float matrizAsociada1[][] = new float[2][2];
   private float matrizAsociada2[][] = new float[2][2];
@@ -16,5 +17,14 @@ public class vectoresPropios {
     vectoresPropios[0] = x;
     vectoresPropios[1] = 1;
     return vectoresPropios;
+  }
+  public float getAngulo(){
+      float angulo = 0;
+    float punto = (this.vectoresPropios1[0] * this.vectoresPropios2[0]) + (this.vectoresPropios1[1] * this.vectoresPropios2[1]);
+    float magnitud1 = (float) Math.sqrt(this.vectoresPropios1[0] * this.vectoresPropios1[0] + this.vectoresPropios1[1] * this.vectoresPropios1[1]);
+    float magnitud2 = (float) Math.sqrt(this.vectoresPropios2[0] * this.vectoresPropios2[0] + this.vectoresPropios2[1] * this.vectoresPropios2[1]);
+    float cosAngulo = punto / (magnitud1 * magnitud2);
+    angulo = (float) Math.toDegrees(Math.acos(cosAngulo));
+      return angulo;
   }
 }
