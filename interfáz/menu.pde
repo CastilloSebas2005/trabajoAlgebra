@@ -25,10 +25,10 @@ public class menu
       }
       if (entrada == 2) {
         System.out.println("Suerte!!");
-      } else if(entrada == 0){
+      } else if (entrada == 0) {
         System.out.println("calculando...");
-      }else{
-         System.out.println("error");
+      } else {
+        System.out.println("error");
       }
     }
     catch(Exception e) {

@@ -5,4 +5,6 @@ void setup(){
  float matrizAsociada2[][] = prueba_m.getMatrizAsociada(5);
  prueba_m.imprimirMatriz();
  vectoresPropios prueba_v = new vectoresPropios(matrizAsociada1, matrizAsociada2);
+ formaCanonica xd = new formaCanonica(prueba_m.factorizarPolinomio(), prueba.const_);
+ xd.obtenerFormaCanonica();
 }

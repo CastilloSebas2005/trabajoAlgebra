@@ -17,5 +17,4 @@ public class vectoresPropios {
     vectoresPropios[1] = 1;
     return vectoresPropios;
   }
-  
 }
