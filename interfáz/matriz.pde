@@ -61,7 +61,7 @@ public class matriz {
     }
     return valoresPropios;
   }
-  public float[][] matrizAsociada(int lambda){
+  public float[][] getMatrizAsociada(int lambda){
     float matrizAsociada[][] = new float[2][2];
     matrizAsociada[0][0] = matrizCuadrica[0][0] - lambda;
     matrizAsociada[0][1] = matrizAsociada[1][0] = matrizCuadrica[0][1];

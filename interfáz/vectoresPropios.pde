@@ -1,24 +1,21 @@
-import org.apache.commons.math3.linear.*;
-
 public class vectoresPropios {
-    private double[][] matrizAsociada;
-    private RealVector[] vectoresPropios;
+  private float matrizAsociada1[][] = new float[2][2];
+  private float matrizAsociada2[][] = new float[2][2];
+  public float vectoresPropios1[] = new float[2];
+  public float vectoresPropios2[] = new float[2];
+  public vectoresPropios(float MatrizAsociada1[][], float MatrizAsociada2[][]) {
+    matrizAsociada1 = MatrizAsociada1;
+    matrizAsociada2 = MatrizAsociada2;
+    vectoresPropios1 = obtenerVectoresPropios(matrizAsociada1);
+    vectoresPropios2 = obtenerVectoresPropios(matrizAsociada2);
+  }
 
-    public vectoresPropios(double[][] matrizAsociada) {
-        this.matrizAsociada = matrizAsociada;
-        calcularVectoresPropios();
-    }
-
-    private void calcularVectoresPropios() {
-        RealMatrix matriz = MatrixUtils.createRealMatrix(matrizAsociada);
-        EigenDecomposition ed = new EigenDecomposition(matriz);
-        vectoresPropios = new RealVector[matrizAsociada.length];
-        for (int i = 0; i < matrizAsociada.length; i++) {
-            vectoresPropios[i] = ed.getEigenvector(i);
-        }
-    }
-
-    public RealVector[] getVectoresPropios() {
-        return vectoresPropios;
-    }
+  private float[] obtenerVectoresPropios(float MatrizAsociada[][]) {
+    float x = -MatrizAsociada[0][1]/MatrizAsociada[0][0];
+    float vectoresPropios[] = new float[2];
+    vectoresPropios[0] = x;
+    vectoresPropios[1] = 1;
+    return vectoresPropios;
+  }
+  
 }

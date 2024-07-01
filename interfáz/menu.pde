@@ -2,10 +2,10 @@ import java.util.*;
 import javax.swing.*;
 public class menu
 {
-  private float ejex;
-  private float ejey;
-  private float ejexy;
-  private float const_;
+  public float ejex;
+  public float ejey;
+  public float ejexy;
+  public float const_;
   private PImage error;
 
   public menu() {
@@ -25,8 +25,10 @@ public class menu
       }
       if (entrada == 2) {
         System.out.println("Suerte!!");
-      } else {
+      } else if(entrada == 0){
         System.out.println("calculando...");
+      }else{
+         System.out.println("error");
       }
     }
     catch(Exception e) {
